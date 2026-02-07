@@ -1,0 +1,66 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int gradeToPoint(string grade) {
+    if (grade == "O") return 10;
+    if (grade == "A+")  return 9;
+    if (grade == "A") return 8;
+    if (grade == "B+")  return 7;
+    if (grade == "B")  return 6;
+    if (grade == "C")  return 5;
+    if (grade == "D")  return 0;
+    return -1;
+}
+
+int main() {
+    int n;
+    float totalCredits = 0, totalGradePoints = 0;
+    bool isFail = false;
+
+    cout << "Enter number of courses: ";
+    cin >> n;
+
+    for (int i = 1; i <= n; i++) {
+        string subject, grade;
+        int credit;
+        int gradePoint;
+
+        cout << "\nCourse " << i << endl;
+
+        cout << "Enter subject name: ";
+        cin >> subject;
+
+        cout << "Enter grade (O,A+,A, B+,B, C, D): ";
+        cin >> grade;
+        if (subject == "Tamil" || subject == "English") {
+            credit = 1;
+            cout << "Credit fixed as 1 (Language subject)\n";
+        } else {
+            cout << "Enter credit hours: ";
+            cin >> credit;
+        }
+        gradePoint = gradeToPoint(grade);
+        if (gradePoint == -1) {
+            cout << "Invalid grade entered!" << endl;
+            return 0;
+        }
+
+        if (grade == "F") {
+            isFail = true;
+        }
+
+        totalCredits += credit;
+        totalGradePoints += gradePoint * credit;
+    }
+    float cgpa = totalGradePoints / totalCredits;
+
+    cout << "\nTotal Credits: " << totalCredits << endl;
+    cout << "Total Grade Points: " << totalGradePoints << endl;
+    cout << "Final CGPA: " << cgpa << endl;
+    if (isFail)
+        cout << "Result: FAIL (One or more subjects failed)";
+    else
+        cout << "Result: PASS";
+
+    return 0;
+}
