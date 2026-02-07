@@ -6,13 +6,21 @@ This project is useful for students to understand functions, conditionals, loops
 ✨ Features
 
 Accepts multiple courses
+
 Converts grades to grade points
+
 Automatically assigns 1 credit for language subjects (Tamil & English)
+
 Calculates:
+
 Total Credits
+
 Total Grade Points
+
 Final CGPA
+
 Displays PASS / FAIL result
+
 Validates incorrect grade input
 
 🛠️ Technologies Used
